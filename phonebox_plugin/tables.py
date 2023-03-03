@@ -23,7 +23,7 @@ class NumberTable(BaseTable):
 
     class Meta(BaseTable.Meta):
         model = Number
-        fields = ('pk', 'number', 'tenant', 'region', 'description', 'provider', 'forward_to')
+        fields = ('pk', 'number', 'tenant', 'region', 'description', 'ported_out', 'is_owner', 'provider', 'forward_to')
 
 
 class VoiceCircuitTable(BaseTable):

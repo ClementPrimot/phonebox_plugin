@@ -76,7 +76,7 @@ class NumberEditForm(forms.ModelForm):
 
     class Meta:
         model = Number
-        fields = ('number', 'tenant', 'region', 'description', 'provider', 'forward_to', 'tags')
+        fields = ('number', 'tenant', 'region', 'description', 'ported_out', 'is_owner', 'provider', 'forward_to', 'tags')
 
 
 class NumberBulkEditForm(AddRemoveTagsForm, BulkEditForm):
@@ -112,6 +112,14 @@ class NumberBulkEditForm(AddRemoveTagsForm, BulkEditForm):
     description = forms.CharField(
         max_length=200,
         required=False
+    )
+    ported_out = forms.BooleanField(
+        required=False,
+        label='Ported Out'
+    )
+    is_owner = forms.BooleanField(
+        required=False,
+        label='Are you the owner of this number?'
     )
 
     class Meta:

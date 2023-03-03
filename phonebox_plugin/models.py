@@ -39,6 +39,16 @@ class Number(ChangeLoggedModel):
         null=False
     )
     description = models.CharField(max_length=200, blank=True)
+    ported_out = models.BooleanField(
+        default=False,
+        blank=False,
+        null=False
+    )
+    is_owner = models.BooleanField(
+        default=False,
+        blank=False,
+        null=False
+    )
     provider = models.ForeignKey(
         to="circuits.Provider",
         on_delete=models.SET_NULL,
@@ -64,7 +74,7 @@ class Number(ChangeLoggedModel):
 
     objects = RestrictedQuerySet.as_manager()
 
-    csv_headers = ['number', 'tenant', 'region', 'description', 'provider', 'forward_to']
+    csv_headers = ['number', 'tenant', 'region', 'description', 'ported_out', 'is_owner', 'provider', 'forward_to']
 
     def __str__(self):
         return str(self.number)

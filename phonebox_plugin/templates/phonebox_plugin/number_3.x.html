@@ -98,6 +98,26 @@
                         <td>Description</td>
                         <td>{{ object.description }}</td>
                     </tr>
+                    <tr> 
+                        <td>Outgoing portability</td>
+                        <td>
+                            {% if object.ported_out %}
+                                <span class="mdi mdi-check" aria-hidden="true"></span>
+                            {% else %}
+                                <span class="mdi mdi-close" aria-hidden="true"></span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Owner of this number?</td>
+                        <td>
+                            {% if object.is_owner %}
+                                <span class="mdi mdi-check" aria-hidden="true"></span>
+                            {% else %}
+                                <span class="mdi mdi-close" aria-hidden="true"></span>
+                            {% endif %}
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
