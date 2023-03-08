@@ -44,6 +44,14 @@ class Number(ChangeLoggedModel):
         blank=False,
         null=False
     )
+    ported_out_date = models.DateField(
+        blank=True,
+        null=True
+    )
+    ported_out_to = models.CharField(
+        max_length=255,
+        blank=True
+    )
     is_owner = models.BooleanField(
         default=False,
         blank=False,
@@ -74,7 +82,7 @@ class Number(ChangeLoggedModel):
 
     objects = RestrictedQuerySet.as_manager()
 
-    csv_headers = ['number', 'tenant', 'region', 'description', 'ported_out', 'is_owner', 'provider', 'forward_to']
+    csv_headers = ['number', 'tenant', 'region', 'description', 'ported_out', 'ported_out_date', 'ported_out_to', 'is_owner', 'provider', 'forward_to']
 
     def __str__(self):
         return str(self.number)

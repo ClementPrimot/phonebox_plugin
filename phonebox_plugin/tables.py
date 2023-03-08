@@ -18,12 +18,15 @@ class NumberTable(BaseTable):
     number = tables.LinkColumn()
     tenant = tables.LinkColumn()
     region = tables.LinkColumn()
+    ported_out = tables.BooleanColumn()
+    ported_out_date = tables.DateColumn()
+    is_owner = tables.BooleanColumn()
     provider = tables.LinkColumn()
     forward_to = tables.LinkColumn()
 
     class Meta(BaseTable.Meta):
         model = Number
-        fields = ('pk', 'number', 'tenant', 'region', 'description', 'ported_out', 'is_owner', 'provider', 'forward_to')
+        fields = ('pk', 'number', 'tenant', 'region', 'description', 'ported_out', 'ported_out_date', 'ported_out_to', 'is_owner', 'provider', 'forward_to')
 
 
 class VoiceCircuitTable(BaseTable):

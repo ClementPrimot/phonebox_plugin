@@ -76,7 +76,7 @@ class NumberEditForm(forms.ModelForm):
 
     class Meta:
         model = Number
-        fields = ('number', 'tenant', 'region', 'description', 'ported_out', 'is_owner', 'provider', 'forward_to', 'tags')
+        fields = ('number', 'tenant', 'region', 'description', 'ported_out', 'ported_out_date', 'ported_out_to', 'is_owner', 'provider', 'forward_to', 'tags')
 
 
 class NumberBulkEditForm(AddRemoveTagsForm, BulkEditForm):
@@ -117,13 +117,22 @@ class NumberBulkEditForm(AddRemoveTagsForm, BulkEditForm):
         required=False,
         label='Ported Out'
     )
+    ported_out_date = forms.DateField(
+        required=False,
+        label='Date of the outgoing portability'
+    )
+    ported_out_to = forms.CharField(
+        max_length=200,
+        required=False,
+        label='Ported Out To'
+    )
     is_owner = forms.BooleanField(
         required=False,
         label='Are you the owner of this number?'
     )
 
     class Meta:
-        nullable_fields = ('region', 'provider', 'forward_to', 'description')
+        nullable_fields = ('region', 'provider', 'forward_to', 'ported_out_date', 'ported_out_to', 'description')
 
 
 class NumberCSVForm(CSVModelForm):

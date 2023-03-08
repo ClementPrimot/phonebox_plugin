@@ -47,6 +47,14 @@ class NumberFilterSet(BaseFilterSet):
         to_field_name='id',
         label='Region (id)',
     )
+    ported_out = django_filters.BooleanFilter(
+        field_name='ported_out',
+        label='Ported Out',
+    )
+    is_owner = django_filters.BooleanFilter(
+        field_name='is_owner',
+        label='Is Owner',
+    ) 
     forward_to = django_filters.ModelMultipleChoiceFilter(
         field_name='forward_to',
         queryset=Number.objects.all(),

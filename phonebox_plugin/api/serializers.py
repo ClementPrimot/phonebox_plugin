@@ -21,5 +21,5 @@ class NumberSerializer(TagSerializer, serializers.ModelSerializer):
     class Meta:
         model = Number
         fields = [
-            "id", "label", "number", "tenant", "region", "forward_to", "description", "provider", "tags",
+            "id", "label", "number", "tenant", "region", "forward_to", "description", "ported_out", "ported_out_date", "ported_out_to", "is_owner", "provider", "tags",
         ]
